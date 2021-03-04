@@ -45,7 +45,7 @@ DYNPARAM_MAPPING = {
         "xy_goal_tolerance": "xy_goal_tolerance",
         "max_vel_x": "max_vel_x",
         "max_vel_trans": "max_vel_trans",
-        "max_trans_vel": "max_trans_vel",
+        "max_trans_vel": "max_vel_trans",
     },
     "TebLocalPlannerROS": {
         "yaw_goal_tolerance": "yaw_goal_tolerance",
@@ -740,7 +740,7 @@ class TopologicalNavServer(object):
 
             (succeeded, status) = self.monitored_navigation(target_pose, action)
 
-            if edge_id != "none" and self.edge_reconfigure and self.use_tmap2:
+            if edge_id != "none" and self.edge_reconfigure:
                 self.edgeReconfigureManager._reset()
                 rospy.sleep(rospy.Duration.from_sec(0.3))
 
